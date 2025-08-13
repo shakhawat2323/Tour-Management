@@ -1,4 +1,3 @@
-import { UserControllers } from "./user.controller";
 import { IUser } from "./user.interfaces";
 import { User } from "./user.model";
 
@@ -10,6 +9,19 @@ const createUser = async (payload: Partial<IUser>) => {
   });
   return user;
 };
+
+const getAlluser = async () => {
+  const users = await User.find({});
+  const totalusers = await User.countDocuments();
+  return {
+    data: users,
+    meta: {
+      total: totalusers,
+    },
+  };
+};
+
 export const UserServics = {
   createUser,
+  getAlluser,
 };
