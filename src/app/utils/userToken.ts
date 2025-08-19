@@ -62,7 +62,5 @@ export const createNewAccessTokenWithRefreshToken = async (
     envVars.JWT_ACCESS_SECRET,
     envVars.JWT_ACCESS_EXPIRES
   );
-  return {
-    accessToken,
-  };
+  return accessToken;
 };
